@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <gtk/gtk.h>
 #include <vte/vte.h>
+#include <pwd.h>
 
 GtkWidget *make_window();
 

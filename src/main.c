@@ -67,7 +67,7 @@ GtkWidget *make_window()
             NULL);
 
     // fire up child process in terminal widget
-	term_argv[0] = "/bin/bash";
+	term_argv[0] = getpwuid(getuid())->pw_shell;
 	if (!vte_terminal_fork_command_full(
 			VTE_TERMINAL(win_data->terminal), VTE_PTY_DEFAULT,
 			NULL, term_argv, NULL, 0, NULL, NULL,
