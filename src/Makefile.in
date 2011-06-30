@@ -1,16 +1,17 @@
 CC=gcc
 BIN=bin/uberterm
 CFLAGS=-o $(BIN) -Wall `pkg-config --cflags --libs gtk+-2.0 vte`
+PREFIX=@PREFIX@
 
 all: $(BIN)
 
 clean:
-	rm -f $(BIN)
+	@rm -f $(BIN)
 
 install: $(BIN)
-	cp $(BIN) /usr/local/bin/
+	@install $(BIN) $(PREFIX)/bin
 
-$(BIN): main.c main.h
-	$(CC) $(CFLAGS) main.c
+$(BIN): src/main.c src/main.h
+	@$(CC) $(CFLAGS) src/main.c
 
 .PHONY: all clean install
