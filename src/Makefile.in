@@ -1,5 +1,5 @@
 CC=gcc
-BIN=uberterm
+BIN=bin/uberterm
 CFLAGS=-o $(BIN) -Wall `pkg-config --cflags --libs gtk+-2.0 vte`
 
 all: $(BIN)
